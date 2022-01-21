@@ -15,10 +15,10 @@ const getClient = async (req, res) => {
     res.json(result.rows[0]);
 };
 const createClient = async (req, res) => {
-    const { fname, lname, address, birthdate } = req.body;
+    const { nombres, apellido, direccion, nacimiento } = req.body;
     const result = await pool.query(
-        "execute registrar(fname =$1, lname=$2, address=$3, birthdate=$4)",
-        [fname, lname, address, birthdate]
+        "SELECT Registrar(nombres =$1, apellido =$2, direccion=$3, nacimiento=$4)",
+        [nombres, apellido, direccion, nacimiento]
     );
 };
 const updateClient = async (req, res) => {
